@@ -42,4 +42,4 @@ buildNumber.properties
 # metadata いっぱいある
 .metadata/
 
-.DS_Store/
+.DS_Store
