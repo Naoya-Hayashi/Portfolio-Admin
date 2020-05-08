@@ -36,7 +36,7 @@
 			</arguments>
 		</buildCommand>
 	</buildSpec>
-	<natures>
+	<natures>cd 
 		<nature>org.eclipse.jem.workbench.JavaEMFNature</nature>
 		<nature>org.springframework.ide.eclipse.core.springnature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
