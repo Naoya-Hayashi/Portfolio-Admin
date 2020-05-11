@@ -24,11 +24,11 @@ public class Skills {
     this.id = id;
   }
 
-  public String getSkillId() {
+  public String getSkillCategory() {
     return category;
   }
 
-  public void setSkillId(String category) {
+  public void setSkillCategory(String category) {
     this.category = category;
   }
 
