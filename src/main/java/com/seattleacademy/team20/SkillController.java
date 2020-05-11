@@ -39,9 +39,8 @@ public class SkillController<Skill> {
   private JdbcTemplate jdbcTemplate;
 
   /**
-   * Simply selects the home view to render by returning its name. * IOException
-   *
-   * @throuws
+   * Simply selects the home view to render by returning its name.
+   * @throuws　IOException
    */
   @RequestMapping(value = "/upload", method = RequestMethod.GET)
   public String uploadSkill(Locale locale, Model model) {
