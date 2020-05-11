@@ -40,7 +40,8 @@ public class SkillController<Skill> {
 
   /**
    * Simply selects the home view to render by returning its name.
-   * @throuws　IOException
+   *
+   * @throuws IOException
    */
   @RequestMapping(value = "/upload", method = RequestMethod.GET)
   public String uploadSkill(Locale locale, Model model) {
@@ -94,28 +95,26 @@ public class SkillController<Skill> {
     DatabaseReference ref = database.getReference("skills");
     //
     // Map型のリストを作る。MapはStringで聞かれたものに対し、Object型で返すようにしている
-    List<Map<String, Object>> DataList = new ArrayList<Map<String, Object>>();
+    List<Map<String, Object>> dataList = new ArrayList<Map<String, Object>>();
     Map<String, Object> map;
     Map<String, List<Skills>> skillMap = skills.stream().collect(Collectors.groupingBy(Skills::getSkillCategory));
     for (Map.Entry<String, List<Skills>> entry : skillMap.entrySet()) {
       map = new HashMap<>();
       map.put("category", entry.getKey());
       map.put("skill", entry.getValue());
-      DataList.add(map);
-
-      // 非互換オペランド型 String と intとは？↑
-      //
-      ref.setValue(DataList, new DatabaseReference.CompletionListener() {
-        @Override
-        public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
-          if (databaseError != null) {
-            System.out.println("Data could be saved" + databaseError.getMessage());
-          } else {
-            System.out.println("Data save successfully.");
-          }
-        }
-      });
+      dataList.add(map);
     }
+    // 非互換オペランド型 String と intとは？↑
+    //
+    ref.setValue(dataList, new DatabaseReference.CompletionListener() {
+      @Override
+      public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+        if (databaseError != null) {
+          System.out.println("Data could be saved" + databaseError.getMessage());
+        } else {
+          System.out.println("Data save successfully.");
+        }
+      }
+    });
   }
 }
-
